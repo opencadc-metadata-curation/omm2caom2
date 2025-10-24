@@ -12,7 +12,7 @@ RUN chmod 755 /usr/local/lib/python${OPENCADC_PYTHON_VERSION}/site-packages/foot
 WORKDIR /usr/src/app
 
 ARG OPENCADC_BRANCH=main
-ARG OPENCADC_REPO=opencadc
+ARG OPENCADC_REPO=opencadc-metadata-curation
 
 RUN git clone https://github.com/${OPENCADC_REPO}/caom2tools.git && \
     cd caom2tools && \
