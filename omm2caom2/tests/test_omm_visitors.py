@@ -2,7 +2,7 @@
 # ******************  CANADIAN ASTRONOMY DATA CENTRE  *******************
 # *************  CENTRE CANADIEN DE DONNÉES ASTRONOMIQUES  **************
 #
-#  (c) 2025.                            (c) 2025.
+#  (c) 2026.                            (c) 2026.
 #  Government of Canada                 Gouvernement du Canada
 #  National Research Council            Conseil national de recherches
 #  Ottawa, Canada, K1A 0R6              Ottawa, Canada, K1A 0R6
@@ -153,7 +153,7 @@ def test_preview_augment_plane(test_config, test_data_dir):
     assert os.path.exists(thumb)
     test_plane = test_result.planes[omm_name.product_id]
     assert test_plane.artifacts[preva].content_checksum == ChecksumURI(
-        'md5:6fc37f04e7d16adf40f6279db9c5c8e1'
+        'md5:6feae152e1cac5e427d6601da2b070d8'
     ), 'prev checksum failure'
     assert test_plane.artifacts[thumba].content_checksum == ChecksumURI(
         'md5:f755cf9a75f1fb08ee020f3cd6c9b930'
@@ -162,7 +162,7 @@ def test_preview_augment_plane(test_config, test_data_dir):
     # now do updates
     test_obs.planes[omm_name.product_id].artifacts[
         preva
-    ].content_checksum = ChecksumURI('md5:de9f39804f172682ea9b001f8ca11f15')
+    ].content_checksum = ChecksumURI('md5:6fc37f04e7d16adf40f6279db9c5c8e1')
     test_obs.planes[omm_name.product_id].artifacts[
         thumba
     ].content_checksum = ChecksumURI('m5:cd118dae04391f6bea93ba4bf2711adf')
@@ -172,7 +172,7 @@ def test_preview_augment_plane(test_config, test_data_dir):
     assert os.path.exists(preview)
     assert os.path.exists(thumb)
     assert test_plane.artifacts[preva].content_checksum == ChecksumURI(
-        'md5:6fc37f04e7d16adf40f6279db9c5c8e1'
+        'md5:6feae152e1cac5e427d6601da2b070d8'
     ), 'prev update failed'
     assert test_plane.artifacts[thumba].content_checksum == ChecksumURI(
         'md5:f755cf9a75f1fb08ee020f3cd6c9b930'

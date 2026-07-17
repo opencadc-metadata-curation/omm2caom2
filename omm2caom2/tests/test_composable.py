@@ -2,7 +2,7 @@
 # ******************  CANADIAN ASTRONOMY DATA CENTRE  *******************
 # *************  CENTRE CANADIEN DE DONNÉES ASTRONOMIQUES  **************
 #
-#  (c) 2025.                            (c) 2025.
+#  (c) 2026.                            (c) 2026.
 #  Government of Canada                 Gouvernement du Canada
 #  National Research Council            Conseil national de recherches
 #  Ottawa, Canada, K1A 0R6              Ottawa, Canada, K1A 0R6
@@ -157,7 +157,7 @@ def _check_uris(obs):
                 assert (
                     artifact.content_type == file_info.file_type
                 ), 'type'
-                assert artifact.content_length == file_info.size, 'size'
+                assert artifact.content_length == file_info.size, f'size {artifact.content_length} != {file_info.size}'
                 assert (
                     artifact.content_checksum.uri == file_info.md5sum
                 ), 'md5'
