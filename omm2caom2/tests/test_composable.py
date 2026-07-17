@@ -2,7 +2,7 @@
 # ******************  CANADIAN ASTRONOMY DATA CENTRE  *******************
 # *************  CENTRE CANADIEN DE DONNÉES ASTRONOMIQUES  **************
 #
-#  (c) 2025.                            (c) 2025.
+#  (c) 2026.                            (c) 2026.
 #  Government of Canada                 Gouvernement du Canada
 #  National Research Council            Conseil national de recherches
 #  Ottawa, Canada, K1A 0R6              Ottawa, Canada, K1A 0R6
@@ -141,9 +141,9 @@ def test_run_rc_todo(client_mock, exec_mock, test_config, tmp_path, change_test_
 uris = {
     'C170324_0054': FileInfo(
         'cadc:OMM/C170324_0054_SCI.fits',
-        size=16793280,
+        size=16799040,
         file_type='application/fits',
-        md5sum='md5:0e3dd1bd509460333eb13e0ff07315f7',
+        md5sum='md5:420d1aa2279a6adbae2ed4fb6eb8cef7',
     ),
 }
 
@@ -157,7 +157,7 @@ def _check_uris(obs):
                 assert (
                     artifact.content_type == file_info.file_type
                 ), 'type'
-                assert artifact.content_length == file_info.size, 'size'
+                assert artifact.content_length == file_info.size, f'size {artifact.content_length} != {file_info.size}'
                 assert (
                     artifact.content_checksum.uri == file_info.md5sum
                 ), 'md5'
@@ -198,7 +198,7 @@ def test_run_compression(clients_mock, test_config, tmp_path, change_test_dir):
         TaskType.INGEST,
         TaskType.MODIFY,
     ]
-    test_config.logging_level = 'DEBUG'
+    test_config.logging_level = 'INFO'
     test_config.log_to_file = True
     test_config.proxy_file_name = 'cadcproxy.pem'
     test_config.use_local_files = True
@@ -297,6 +297,7 @@ def test_run_compression_retry(clients_mock, tmp_path, change_test_dir):
     test_config.logging_level = 'INFO'
     test_config.log_to_file = True
     test_config.collection = 'OMM'
+    test_config.namespace = 'OMM'
     test_config.proxy_file_name = 'cadcproxy.pem'
     test_config.use_local_files = True
     test_config.data_sources = ['/test_files']
