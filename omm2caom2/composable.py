@@ -2,7 +2,7 @@
 # ******************  CANADIAN ASTRONOMY DATA CENTRE  *******************
 # *************  CENTRE CANADIEN DE DONNÉES ASTRONOMIQUES  **************
 #
-#  (c) 2025.                            (c) 2025.
+#  (c) 2026.                            (c) 2026.
 #  Government of Canada                 Gouvernement du Canada
 #  National Research Council            Conseil national de recherches
 #  Ottawa, Canada, K1A 0R6              Ottawa, Canada, K1A 0R6
@@ -93,6 +93,7 @@ def _run_single():
     config = mc.Config()
     config.get_executors()
     mc.StorageName.collection = config.collection
+    mc.StorageName.namespace = config.namespace
     mc.StorageName.preview_scheme = config.preview_scheme
     mc.StorageName.scheme = config.scheme
     config.working_directory = '/usr/src/app'
@@ -129,6 +130,7 @@ def _run():
     config = mc.Config()
     config.get_executors()
     mc.StorageName.collection = config.collection
+    mc.StorageName.namespace = config.namespace
     mc.StorageName.preview_scheme = config.preview_scheme
     mc.StorageName.scheme = config.scheme
     sources = list()

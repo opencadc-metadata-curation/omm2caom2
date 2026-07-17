@@ -2,7 +2,7 @@
 # ******************  CANADIAN ASTRONOMY DATA CENTRE  *******************
 # *************  CENTRE CANADIEN DE DONNÉES ASTRONOMIQUES  **************
 #
-#  (c) 2025.                            (c) 2025.
+#  (c) 2026.                            (c) 2026.
 #  Government of Canada                 Gouvernement du Canada
 #  National Research Council            Conseil national de recherches
 #  Ottawa, Canada, K1A 0R6              Ottawa, Canada, K1A 0R6
@@ -442,8 +442,11 @@ class Telescope(TelescopeMapping2):
                 # DD, SB - slack - 19-03-20 - if release is not in the header
                 # observation date plus two years. This only applies to
                 # science observations.
+                #
+                # SB - slack - 13-07-2026 - let’s get back to a “One-yr’ proprietary because it is very rare that the
+                # data we take is for students.
                 temp = make_datetime(rel_date)
-                rel_date = temp.replace(year=temp.year + 2)
+                rel_date = temp.replace(year=temp.year + 1)
         return rel_date
 
     def get_meta_release_date(self, ext):
