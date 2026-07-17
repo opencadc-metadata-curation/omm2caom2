@@ -31,6 +31,7 @@ retry_failures: True
 retry_count: 1
 retry_decay: 0.1
 collection: OMM
+namespace: OMM
 observe_execution: True
 observable_directory: /usr/src/app/metrics
 rejected_directory: /usr/src/app/rejected
